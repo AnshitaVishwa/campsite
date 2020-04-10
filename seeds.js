@@ -23,40 +23,40 @@ var data = [
 
 function seedDB() {
     Campground.remove({}, function(err){
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("All the files are removed");
-            data.forEach(function(seed){
-                Campground.create(seed, function(err, newlyCreatedCampground){
-                    if (err){
-                        console.log(err);
-                    } else {
-                        console.log("created initial campgrounds");
-                        Comment.create(
-                            {
-                                text: "This place is great, but I wish it would be there",
-                                author: "Anshita Vishwa"
-                            }, function(err, newlyCreatedComment) {
-                                if (err) {
-                                    console.log(err);
-                                } else {
-                                    console.log("Comment to that post has been created");
-                                    newlyCreatedCampground.comments.push(newlyCreatedComment);
-                                    newlyCreatedCampground.save(function(err, updatedWithComment){
-                                        if (err) {
-                                            console.log(err);
-                                        } else {
-                                            console.log("Campground updated with a comment");
-                                        }
-                                    });
-                                }
-                            }
-                        );
-                    }
-                });
-            });
-        }
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         console.log("All the files are removed");
+    //         data.forEach(function(seed){
+    //             Campground.create(seed, function(err, newlyCreatedCampground){
+    //                 if (err){
+    //                     console.log(err);
+    //                 } else {
+    //                     console.log("created initial campgrounds");
+    //                     Comment.create(
+    //                         {
+    //                             text: "This place is great, but I wish it would be there",
+    //                             author: "Anshita Vishwa"
+    //                         }, function(err, newlyCreatedComment) {
+    //                             if (err) {
+    //                                 console.log(err);
+    //                             } else {
+    //                                 console.log("Comment to that post has been created");
+    //                                 newlyCreatedCampground.comments.push(newlyCreatedComment);
+    //                                 newlyCreatedCampground.save(function(err, updatedWithComment){
+    //                                     if (err) {
+    //                                         console.log(err);
+    //                                     } else {
+    //                                         console.log("Campground updated with a comment");
+    //                                     }
+    //                                 });
+    //                             }
+    //                         }
+    //                     );
+    //                 }
+    //             });
+    //         });
+    //     }
     });
 }
 
